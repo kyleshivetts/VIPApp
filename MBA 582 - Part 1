@@ -1,0 +1,12 @@
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "217238kjs!"
+});
+
+con.connect(function(err){
+    if (err) throw err;
+    console.log("Houston we do not have a problem, we are connected");
+});
