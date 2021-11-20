@@ -1,0 +1,32 @@
+var express = require('express');
+var app = express();
+var mysql = require('mysql');
+var bodyParser = require('body-parser');
+
+//Call our Methods
+app.use(express.static(__dirname + '/public'))
+app.use(bodyParser.urlencoded({extended: false}));
+
+//Connection Config
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "217238kjs!",
+    database: "ProductOrder"
+));
+
+//routes
+app.get('/', function(request, response){
+    console.log('Get request at /')
+    con.query("Select * From customers", fuction(err, result){
+        if(err) throw err;
+        else{
+            response.send(result);
+        }
+    });
+});
+
+//Port is required
+app.listen(9021, function () {
+    console.log('Connected to the active port');
+});
