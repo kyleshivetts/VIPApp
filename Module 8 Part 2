@@ -1,0 +1,27 @@
+const { throws } = require('assert');
+const { clear } = require('console');
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "217238kjs!",
+    database: "ProductOrder"
+});
+con.connect(function(err){
+    if (err) throw err;
+    con.query("Select * From Cities, Countries, Customers"){
+        if (err) throw err; 
+        console.log(result);    
+
+con.connect(function(err){
+    if (err) throw err;
+    con.query("Select a.CustomerName, a.CustomerLastName, b. City, b.State, b.region, c.country From Customers a Join Cities b on a.cityID = b.cityID JOIN countries c on b.countryID = c.countyID"){
+        if (err) throw err; 
+        console.log(result);
+
+con.connect(function(err){
+    if (err) throw err;
+    con.query("Select a.CustomerName, a.CustomerLastName, b. City, b.State, b.region, c.country From Customers a where Country = US and Country = CAN Order BY CustomerLasName Join Cities b on a.cityID = b.cityID JOIN countries c on b.countryID = c.countyID"){
+        if (err) throw err; 
+        console.log(result); 
